@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="#8070A6">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_margin="20dp"
+        android:id="@+id/imageheader"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageheader"
+        android:text="Maitry's Mall"
+        android:fontFamily="cursive"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/maitrymall"
+        android:textColor="#FCFCFD"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/maitrymall"
+        android:text="maitry.org.in"
+        android:layout_marginLeft="25dp"
+        android:textColor="#FCFCFD"
+        android:textSize="13sp"/>
+
+</RelativeLayout>

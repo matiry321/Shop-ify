@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="30dp">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDescription"
+            android:text="You are Reviewing"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtItemName"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/txtDescription"
+            android:text="Item Name"/>
+    </RelativeLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtTxtUserName"
+        android:layout_marginTop="10dp"
+        android:hint="Your Name Here"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtTxtReview"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:hint="Your Review"
+        android:lines="5"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtWarning"
+        android:text="Warning"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#EE0024"
+        android:visibility="gone"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Add"
+        android:id="@+id/btnAddReview"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>
