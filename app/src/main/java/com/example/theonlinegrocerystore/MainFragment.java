@@ -1,5 +1,6 @@
 package com.example.theonlinegrocerystore;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -45,7 +46,9 @@ public class MainFragment extends Fragment {
                         //TODO navigate to another activity
                         break;
                     case R.id.searchnew:
-                        Toast.makeText(getActivity(), "Search the item", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(),SearchActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                         break;
                     case R.id.cart:
                         Toast.makeText(getActivity(), "Search the item", Toast.LENGTH_SHORT).show();

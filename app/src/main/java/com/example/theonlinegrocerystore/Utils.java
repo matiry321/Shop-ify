@@ -154,6 +154,39 @@ public class Utils {
         editor.commit();
 
     }
+
+    public static ArrayList<Groceryitem> searchforItem(Context context,String text) {
+        ArrayList<Groceryitem> allItems = getAllItems(context);
+        if (null != allItems) {
+            ArrayList<Groceryitem> items = new ArrayList<>();
+            for (Groceryitem item : allItems) {
+                if (item.getName().equalsIgnoreCase(text)) {
+                    items.add(item);
+                }
+                String[] names = item.getName().split(" ");
+                for (int i = 0; i < names.length; i++) {
+                    if (text.equalsIgnoreCase(names[i])) {
+                        boolean doesExist = false;
+
+                        for(Groceryitem j:items)
+                        {
+                            if(j.getId() == item.getId())
+                            {
+                                doesExist = true;
+                            }
+                        }
+                        if(!doesExist)
+                        {
+                            items.add(item);
+                        }
+
+                    }
+                }
+            }
+            return items;
+        }
+        return null;
+    }
     public static ArrayList<Groceryitem> getCartItems(Context context)
     {
         SharedPreferences sharedPreferences = context.getSharedPreferences(DB_NAME,Context.MODE_PRIVATE);
@@ -166,3 +199,4 @@ public class Utils {
         return ID;
     }
 }
+
