@@ -41,19 +41,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="First Category"
-                android:id="@+id/txtFirstCat"/>
+                android:id="@+id/txtFirstCat"
+                android:visibility="gone"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Second Category"
                 android:id="@+id/txtSecondCat"
-                android:layout_marginStart="10dp"/>
+                android:layout_marginStart="10dp"
+                android:visibility="gone"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Third Category"
                 android:id="@+id/txtThirdCat"
-                android:layout_marginStart="10dp"/>
+                android:layout_marginStart="10dp"
+                android:visibility="gone"/>
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"

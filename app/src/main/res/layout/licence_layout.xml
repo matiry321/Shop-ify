@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dismiss"
+        android:layout_below="@+id/nested"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="#8BC34A"
+        android:id="@+id/button"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:padding="10dp"
+        android:id="@+id/nested">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=" What Is a Licensing Agreement? A licensing agreement is a written contract between two parties, in which a property owner permits another party to use that property under a specific set of parameters. A licensing agreement or license agreement typically involves a licensor and a licensee.
+Understanding Licensing Agreements Licensing agreements delineate the terms under which one party may use property owned by another party. While the properties in question can include a myriad of items, including real estate holdings and personal possessions, licensing agreements are most often used for intellectual property, such as patents and trademarks, as well as copyrights for written materials and visual art.
+Licensing agreements are widely used for the commercialization of technologies. In addition to detailing all parties involved, licensing agreements specify in granular detail, how licensed parties may use properties, including the following parameters:
+The geographical regions within which the property may be utilized. The time period parties are allotted to use the property.
+ The exclusivity or non-exclusivity of a given arrangement. Scaling terms, such that new royalty fees will be incurred if the property is reused a certain number of times. For example, a book publisher may enter a licensing agreement with another party to use a piece of artwork on the hardcover editions of a book, but not on the covers of subsequent paperback issuances. The publisher may also be restricted from using the artistic image in certain advertising campaigns.
+
+Examples of Licensing Agreements
+
+Licensing examples are found in many different industries. An example of a licensing agreement is an agreement from copyright holders of software to a company, allowing it to use the computer software for their daily business operations.
+
+An example of a licensing agreement in the restaurant space would be when a McDonald's franchisee has a licensing agreement with the McDonald's Corporation that lets them use the company's branding and marketing materials. And toy manufacturers routinely sign licensing agreements with movie studios, giving them the legal authority to produce action figures based on popular likenesses of movie characters.
+Entering Into a Licensing Agreement
+
+The bargaining power of the two parties involved in a licensing agreement often depends on the nature of the product. For example, a movie studio that licenses the likeness of a popular superhero to an action figure manufacturer might have significant bargaining power in this negotiation, because the manufacturer is likely to profit immensely from such an arrangement. The movie studio thus has the leverage to take his business elsewhere if the manufacturer gets cold feet. "
+            android:textStyle="bold|italic"/>
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

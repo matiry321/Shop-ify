@@ -33,7 +33,7 @@ public class MainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_dumy,container,false);
         initView(view);
-       // Utils.clearSharedPreferences(getActivity());
+       //Utils.clearSharedPreferences(getActivity());
       //  initRecViews();//to initialise our recycler view
         bottomNavigation.setSelectedItemId(R.id.home);
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,7 +51,9 @@ public class MainFragment extends Fragment {
                         startActivity(intent);
                         break;
                     case R.id.cart:
-                        Toast.makeText(getActivity(), "Search the item", Toast.LENGTH_SHORT).show();
+                       Intent cartIntent = new Intent(getActivity(),CartActivity.class);
+                        cartIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(cartIntent);
                         break;
                     default:
                         break;

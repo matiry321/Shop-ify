@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtAddress"
+        android:layout_marginTop="20dp"
+        android:text="Address:"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtTxtAddress"
+        android:layout_below="@+id/txtAddress"
+        android:layout_marginTop="10dp"
+        android:hint="Address"
+        android:gravity="bottom"
+        android:lines="2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtZipCode"
+        android:layout_marginTop="20dp"
+        android:text="ZipCode:"
+        android:layout_below="@id/edtTxtAddress"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtZipCode"
+        android:layout_below="@+id/txtZipCode"
+        android:layout_marginTop="10dp"
+        android:gravity="bottom"
+        android:hint="Zip Code"
+        android:lines="2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPhoneNumber"
+        android:layout_marginTop="20dp"
+        android:text="Phone Number:"
+        android:layout_below="@id/edtZipCode"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtPhoneNumber"
+        android:layout_below="@+id/txtPhoneNumber"
+        android:layout_marginTop="10dp"
+        android:gravity="bottom"
+        android:hint="Zip Code"
+        android:lines="2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtEmail"
+        android:layout_marginTop="20dp"
+        android:text="Email:"
+        android:layout_below="@id/edtPhoneNumber"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtEmail"
+        android:layout_below="@+id/txtEmail"
+        android:layout_marginTop="10dp"
+        android:gravity="bottom"
+        android:hint="Zip Code"
+        android:lines="2"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:id="@+id/btnLinLayout">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBack"
+            android:layout_centerHorizontal="true"
+            android:text="BACk"
+            android:layout_marginLeft="90dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnNext"
+            android:text="NEXt"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/txtWarning"
+        android:layout_above="@+id/btnLinLayout"
+        android:text="Warning"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:textColor="#EE001C"
+        android:visibility="gone"/>
+
+</RelativeLayout>

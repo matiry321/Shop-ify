@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,15 +19,34 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
 
+import java.security.Provider;
 import java.util.ArrayList;
 
 public class grocery_Item_Activity extends AppCompatActivity implements AddReviewDialog.AddReview {
     private static final String TAG = "GroceryItemActivity";
     private static final String GROCERY_ITEM_KEY = "incoming_item";
+    private boolean isBound;
+    private TrackUserTime mService;
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            TrackUserTime.LocalBinder binder= (TrackUserTime.LocalBinder) service;
+            mService = binder.getService();
+            isBound=true;
+            mService.setItem(incomingItem);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            isBound = false;
+
+        }
+    };
     @Override
     public void onAddReviewResult(Review review) {
         Log.d(TAG,"onAddReviewResult:new review" +review);
         Utils.addReview(this,review);
+        Utils.ChangeUserPoint(this,incomingItem,3);
         ArrayList<Review> reviews=Utils.getReviewsById(this,review.getGroceryItemId());
         if(null!=reviews)
         {
@@ -57,6 +79,7 @@ public class grocery_Item_Activity extends AppCompatActivity implements AddRevie
             incomingItem = intent.getParcelableExtra(GROCERY_ITEM_KEY);
             if(null != incomingItem)
             {
+                Utils.ChangeUserPoint(this,incomingItem,1);
                 txtName.setText(incomingItem.getName());
                 txtDescription.setText(incomingItem.getDescription());
                 txtprice.setText(String.valueOf(incomingItem.getPrice())+"$");
@@ -80,7 +103,9 @@ public class grocery_Item_Activity extends AppCompatActivity implements AddRevie
                     public void onClick(View v) { //to add the item to the cart
                         //TODO Add item to the cart
                         Utils.addItemTOCart(grocery_Item_Activity.this,incomingItem);
-                        Log.d(TAG, "onClick: cart Items" +Utils.getCartItems(grocery_Item_Activity.this));
+                        Intent cartIntent = new Intent(grocery_Item_Activity.this,CartActivity.class);
+                        cartIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(cartIntent);
                     }
                 });
                 txtAddReview.setOnClickListener(new View.OnClickListener() { //to add review of hte item crete the dialog box then create its java file
@@ -143,6 +168,7 @@ public class grocery_Item_Activity extends AppCompatActivity implements AddRevie
                 if(incomingItem.getRate()!=1)
                 {
                     Utils.changeRate(grocery_Item_Activity.this,incomingItem.getId(),1);
+                    Utils.ChangeUserPoint(grocery_Item_Activity.this,incomingItem,(1-incomingItem.getRate())+2);
                     incomingItem.setRate(1);
                     handleRating();
                 }
@@ -155,6 +181,7 @@ public class grocery_Item_Activity extends AppCompatActivity implements AddRevie
                 if(incomingItem.getRate()!=2)
                 {
                     Utils.changeRate(grocery_Item_Activity.this,incomingItem.getId(),2);
+                    Utils.ChangeUserPoint(grocery_Item_Activity.this,incomingItem,(2-incomingItem.getRate())+2);
                     incomingItem.setRate(2);
                     handleRating();
                 }
@@ -167,6 +194,7 @@ public class grocery_Item_Activity extends AppCompatActivity implements AddRevie
                 if(incomingItem.getRate()!=3)
                 {
                     Utils.changeRate(grocery_Item_Activity.this,incomingItem.getId(),3);
+                    Utils.ChangeUserPoint(grocery_Item_Activity.this,incomingItem,(3-incomingItem.getRate())+2);
                     incomingItem.setRate(3);
                     handleRating();
                 }
@@ -194,6 +222,21 @@ public class grocery_Item_Activity extends AppCompatActivity implements AddRevie
         toolbar=findViewById(R.id.toolbar);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        Intent intent = new Intent(this,TrackUserTime.class);
+        bindService(intent,connection,BIND_AUTO_CREATE);
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if(isBound)
+        {
+            unbindService(connection);
+        }
+    }
 }
