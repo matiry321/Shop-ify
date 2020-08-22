@@ -55,7 +55,7 @@
         android:layout_below="@+id/txtPhoneNumber"
         android:layout_marginTop="10dp"
         android:gravity="bottom"
-        android:hint="Zip Code"
+        android:hint="Phone Number"
         android:lines="2"/>
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
         android:layout_below="@+id/txtEmail"
         android:layout_marginTop="10dp"
         android:gravity="bottom"
-        android:hint="Zip Code"
+        android:hint="Email"
         android:lines="2"/>
 
     <LinearLayout
