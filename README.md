@@ -1,4 +1,5 @@
 # Shop-ify
+(E-commerce application)
 
 It's an online shopping mobile application where we can shop grocery items (Mini Amazon).
 
